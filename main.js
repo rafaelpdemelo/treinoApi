@@ -1,10 +1,9 @@
 // // CODE FOR POST METHOD
 
-const form = document.getElementById('formPost');
-form.onclick=fetchPost
+const form = document.getElementById("formPost");
+form.onclick = fetchPost;
 
-function fetchPost(e){ 
-
+function fetchPost(e) {
   e.preventDefault();
 
   let articleBody = document.getElementById("articleBody");
@@ -21,18 +20,18 @@ function fetchPost(e){
 
       body: JSON.stringify({
         articleBody: `${articleBody.value}`,
-        headline: `${headline.value}`
+        headline: `${headline.value}`,
       }),
     }
   )
     .then((resposta) => resposta.json())
-    .then((data) => console.log(data))
-  };
+    .then((data) => console.log(data));
+}
 
 //-------------------------------------------------------------------------------------------
 
 //CODE FOR GET METHOD
-function fetchGet(){
+function fetchGet() {
   fetch(
     "http://localhost:8080/o/headless-delivery/v1.0/sites/20123/blog-postings",
     {
@@ -44,9 +43,19 @@ function fetchGet(){
     }
   )
     .then((resposta) => resposta.json())
-    .then((data) => console.log(data))
-};
+    .then((data) => console.log(data));
+}
 
-//CODE FOR GET BY ID 
+//CODE FOR GET BY ID
 
-// console.log(fetch('http://localhost:8080/o/headless-delivery/v1.0/sites/20123/blog-postings'))
+function fetchGetById(){
+fetch(
+  "http://localhost:8080/o/headless-delivery/v1.0/sites/20123/blog-postings", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Basic " + btoa("test@liferay.com:test"),
+    },
+  }
+  .then((resposta) => resposta.json())
+  .then((data) => console.log(data));
