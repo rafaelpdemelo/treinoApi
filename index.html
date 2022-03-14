@@ -1,38 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TREINO API</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <h1>API LIFERAY</h1>
     <div class="container">
-        <h2>GET </h2>
-        <button onclick="fetchGet()">ENVIAR</button>
-        <h2>POST</h2>
-        <form id="formPost" method="post">
-            <input id="articleBody" type="text" placeholder="articleBody" name="articleBody">
-            <input id="headline" type="text" placeholder="headline" name="headline">
-            <button type="submit">ENVIAR</button>
-        </form>
-        <h2>GET BY ID</h2>
-        <form id="formGetById" method="get">
-            <input id="getbyid" type="text" placeholder="ID POST" name="getbyid">
-            <button type="submit">ENVIAR</button>
-        </form>
+      <h2>GET</h2>
+      <button onclick="fetchGet()">ENVIAR</button>
+
+      <h2>POST</h2>
+      <form id="formPost">
+        <input
+          id="articleBody"
+          type="text"
+          placeholder="articleBody"
+          name="articleBody"
+        />
+        <input
+          id="headline"
+          type="text"
+          placeholder="headline"
+          name="headline"
+        />
+        <button type="submit">ENVIAR</button>
+      </form>
+
+      <h2>GET BY ID</h2>
+      <form id="formGetById">
+        <input id="getbyid" type="text" placeholder="ID POST" name="getbyid" />
+        <button type="submit">ENVIAR</button>
+      </form>
+
+      <h2>DELETE BY ID</h2>
+      <form id="formDeleteById">
+        <input
+          id="deleteById"
+          type="text"
+          placeholder="ID POST FOR DELETE"
+          name="deletebyid"
+        />
+        <button type="submit">ENVIAR</button>
+      </form>
+
+      <h2>Documents and Media</h2>
+      <form id="formUploadImage">
+        <input type="file" id="img" name="img" accept="image/*" />
+        <input type="submit" />
+      </form>
     </div>
     <div class="selo">
-        <img src="selo.svg" alt="selo de qualidade liferay">
+      <img src="selo.svg" alt="selo de qualidade liferay" />
     </div>
 
-
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

@@ -36,6 +36,30 @@ function fetchGet() {
     "http://localhost:8080/o/headless-delivery/v1.0/sites/20123/blog-postings",
     {
       method: "GET",
+      headers: new Headers({
+        Authorization: "Basic " + btoa("test@liferay.com:test"),
+        "Content-Type": "application/json",
+      }),
+    }
+  )
+    .then((resposta) => resposta.json())
+    .then((data) => console.log(data));
+}
+
+//CODE FOR GET BY ID
+
+const formGetById = document.getElementById("formGetById");
+formGetById.onclick = fetchGetById;
+
+function fetchGetById(e) {
+  e.preventDefault();
+
+  let blogPostingId = document.getElementById("getbyid");
+
+  fetch(
+    `http://localhost:8080/o/headless-delivery/v1.0/blog-postings/${blogPostingId.value}`,
+    {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Basic " + btoa("test@liferay.com:test"),
@@ -46,16 +70,38 @@ function fetchGet() {
     .then((data) => console.log(data));
 }
 
-//CODE FOR GET BY ID
+// CODE FOR DELETE BY ID
 
-function fetchGetById(){
-fetch(
-  "http://localhost:8080/o/headless-delivery/v1.0/sites/20123/blog-postings", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Basic " + btoa("test@liferay.com:test"),
-    },
-  }
-  .then((resposta) => resposta.json())
-  .then((data) => console.log(data));
+const formDeleteById = document.getElementById("formDeleteById");
+formDeleteById.onsubmit = fetchdeleteById;
+
+function fetchdeleteById(e) {
+  e.preventDefault();
+
+  let blogPostingIdForDelete = document.getElementById("deleteById");
+
+  fetch(
+    `http://localhost:8080/o/headless-delivery/v1.0/blog-postings/${blogPostingIdForDelete.value}`,
+    {
+      method: "DELETE",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: "Basic " + btoa("test@liferay.com:test"),
+      }),
+    }
+  )
+}
+
+
+// -------------------------- DOCUMENTS AND MIDIA
+
+function fetchPostImage (e){
+  e.preventDefault();
+
+  let imgPost = document.getElementById("formUploadImage");
+  
+
+fetch("http://localhost:8080/o/headless-delivery/v1.0/sites/20123/documents",{
+
+});
+}
