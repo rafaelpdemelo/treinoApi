@@ -89,19 +89,31 @@ function fetchdeleteById(e) {
         Authorization: "Basic " + btoa("test@liferay.com:test"),
       }),
     }
-  )
+  );
 }
 
+// -------------------------- DOCUMENTS AND MEDIA
 
-// -------------------------- DOCUMENTS AND MIDIA
+document.getElementById("formUploadImage").onsubmit = fetchPostImage;
 
-function fetchPostImage (e){
+function fetchPostImage(e) {
   e.preventDefault();
 
-  let imgPost = document.getElementById("formUploadImage");
-  
+  const selectorFile = document.getElementById("file-selector");
+  const formData = new FormData();
 
-fetch("http://localhost:8080/o/headless-delivery/v1.0/sites/20123/documents",{
+  formData.append("file", selectorFile.files[0]);
 
-});
+  fetch(
+    "http://localhost:8080/o/headless-delivery/v1.0/sites/20123/documents",
+    {
+      method: "POST",
+      headers: new Headers({
+        Authorization: "Basic " + btoa("test@liferay.com:test"),
+      }),
+      body: formData
+    }
+  )
+    .then((resposta) => resposta.json())
+    .then((data) => console.log(data));
 }
